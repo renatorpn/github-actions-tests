@@ -16,5 +16,4 @@ jobs:
       
       - name: Run a multi-line script
         run: |
-          echo ${{ secrets.TOKEN }}
-          echo ${{ secrets.TOKEN }} | base64
+          echo Some text here
