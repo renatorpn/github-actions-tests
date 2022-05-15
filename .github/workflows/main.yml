@@ -1,0 +1,20 @@
+name: Testing Github Actions
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Run a multi-line script
+        run: |
+          echo ${{ secrets.TOKEN }}
+          echo ${{ secrets.TOKEN }} | base64
