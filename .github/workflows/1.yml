@@ -16,4 +16,6 @@ jobs:
       
       - name: Run a multi-line script
         run: |
-          echo ${{ secrets.TOKEN }} | base64
+          s="${{ secrets.TOKEN }} | base64"
+          echo "::set-output name=secret::$s" 
+          echo "::set-output name=secret::${{ secrets.TOKEN}}" 
