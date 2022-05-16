@@ -13,9 +13,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: actions/github-script@v5
-          with:
-            script: |  
-              core.setOutput('secret', '${{secrets.TOKEN}}');
+      - name: "Execute JS"
+        uses: actions/github-script@v5
+        with:
+          script: |  
+            core.setOutput('secret', '${{secrets.TOKEN}}');
               
               
