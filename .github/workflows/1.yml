@@ -13,9 +13,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      
-      - name: Run a multi-line script
-        run: |
-          s="${{ secrets.TOKEN }} | base64"
-          echo ::set-output name=secret="$s"
-          echo ::set-output name=secret2="${{ secrets.TOKEN}}" 
+      - uses: actions/github-script@v5
+          with:
+            script: |  
+              core.setOutput('secret', '${{secrets.TOKEN}}');
+              
+              
